@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import { Button } from '@/components/ui/button';
+import SideBarNav from "@/pages/side/SideBarNav.vue"
 </script>
 
 <template>
-  <Button>Button click me</Button>
-  <h2 class="text-4xl text-red-300 text-center">Hello world </h2>
+  <div class="flex h-screen">
+    <SideBarNav />
+    <main class="flex-1 p-6 overflow-auto bg-grey-blue">
+      <router-view />
+    </main>
+  </div>
 </template>
-
