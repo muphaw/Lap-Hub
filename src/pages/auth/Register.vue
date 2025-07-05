@@ -32,9 +32,17 @@ const handleLogin = () => {
     <!-- Right side: Login Form -->
     <div class="w-1/2 flex flex-col justify-center items-center px-8 bg-grey-blue">
       <div class="w-full max-w-xl">
-        <h2 class="text-4xl text-center font-medium mb-6">Login</h2>
+        <h2 class="text-4xl text-center font-medium mb-6">Create  your account</h2>
         <Form  class="space-y-6">
-         
+          <FormField name="'title'">
+          <FormItem>
+            <FormLabel class="text-xl">Student ID</FormLabel>
+            <FormControl>
+              <Input  placeholder="Enter project title..." class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black" required />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
         <FormField name="'title'">
           <FormItem>
             <FormLabel class="text-xl">Email</FormLabel>
@@ -53,15 +61,24 @@ const handleLogin = () => {
             <FormMessage />
           </FormItem>
         </FormField>
+         <FormField name="'title'">
+          <FormItem>
+            <FormLabel class="text-xl">Confirm Password</FormLabel>
+            <FormControl>
+              <Input  placeholder="Enter confirm password..." class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black" required />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
        <div class="flex justify-center pt-8 ">
         <Button type="submit" class="px-48 py-3 text-xl shadow-[4px_4px_0px_black] text-black bg-dark-yellow  border border-2 border-black active:shadow-[0px_0px_0px_black]">
-          Log In
+          Create
         </Button>
       </div>
-      <p class="text-center">Haven’t joined the hub yet?
-        <router-link to="/register">
-          <span class="font-semibold">Create an account</span>
+      <p class="text-center">Part of LAP Hub already? 
+        <router-link to="/login">
+          <span class="font-semibold">Log In Here</span>
         </router-link>
         
       </p>
