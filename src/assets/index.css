@@ -134,7 +134,7 @@ body {
 
 
 .bg-grey-blue {
-  background-color: #B6C9CF;
+  background-color: #91BBC8;
 }
 .bg-sidebar {
   background-color: #347283;
@@ -175,12 +175,4 @@ body {
 
 .bg-teal-blue:active {
   background-color: #083947 !important;
-}
-
-.bg-ice-cream:active {
-  background-color: #FFFDD0 !important;
-}
-
-.bg-ice-cream:hover {
-  background-color: #0b0033 !important;
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import { UsersRound } from 'lucide-vue-next'
+import { User, UsersRound } from 'lucide-vue-next'
 
 
 const router = useRouter()
@@ -198,15 +198,16 @@ const navigateToUser = (username: string) => {
     {{ error }}
   </div>
   
-  <div v-else-if="project" class="px-6 py-6 max-w-7xl space-y-4">
+  <div v-else-if="project" class="px-6 py-4 max-w-7xl space-y-4">
     <!-- 1. Back Button (Original Design) -->
     <button 
       @click="router.go(-1)"
-      class="flex items-center gap-1 bg-[#B84444] hover:bg-[#C82626] active:bg-[#902424] px-1 py-2 rounded text-sm shadow-[4px_4px_0px_black] text-white border-2 border-black  transition-colors duration-200"
+      class="flex items-center  bg-crimson px-1 py-2 rounded text-sm shadow-[4px_4px_0px_black] text-white border-2 border-black  transition-colors duration-200"
     >
     <img src="/public/back-svgrepo-com.svg" class="w-7 h-5 ml-1" />
       
     </button>
+    
 
     <!-- 2. Photo Gallery (Original Design) -->
     <div class="grid grid-cols-2 gap-5 mb-1">
@@ -263,7 +264,7 @@ const navigateToUser = (username: string) => {
 <!-- Project Content + Metadata (updated) -->
 <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-4">
   <!-- Project Description -->
-  <div class="lg:col-span-4 bg-[#fffba6] rounded-lg p-4 shadow-[4px_4px_0px_black] border-2 border-black">
+  <div class="lg:col-span-4 bg-[#FFF3DE] rounded-lg p-4 shadow-[4px_4px_0px_black] border-2 border-black">
     <h1 class="text-2xl font-bold mb-2">{{ project.title }}</h1>
     <p class="text-lg leading-relaxed text-lg  line-clamp-4">{{ project.description }}</p>
   </div>
@@ -271,7 +272,7 @@ const navigateToUser = (username: string) => {
   <!-- Metadata Buttons -->
   <div class="lg:col-span-1 space-y-4">
   <button
-    class="w-full bg-[#F4CDB0] hover:bg-[#FFDDC4] active:bg-[#EAC1A3] rounded-lg px-4 py-1 shadow-[4px_4px_0px_black] border-2 border-black hover:bg-[#f0f099] transition-colors duration-200 flex items-center gap-2 min-h-[56px]"
+    class="w-full bg-[#F4CDB0] hover:bg-[#FFDDC4] active:bg-[#EAC1A3] rounded-lg px-4 py-1 shadow-[4px_4px_0px_black] border-2 border-black  transition-colors duration-200 flex items-center gap-2 min-h-[56px]"
   >
    <img src="/public/calendar-days-svgrepo-com.svg"  class="w-5 h-6 mx-4" />
     <div class="text-left">
@@ -281,7 +282,7 @@ const navigateToUser = (username: string) => {
   </button>
 
   <button
-    class="w-full bg-[#E9A7A7] hover:bg-[#FFC9C9] active:bg-[#E6A2A2] rounded-lg px-4 py-3 shadow-[4px_4px_0px_black] border-2 border-black hover:bg-[#f0f099] transition-colors duration-200 flex items-center gap-2"
+    class="w-full bg-[#E9A7A7] hover:bg-[#FFC9C9] active:bg-[#E6A2A2] rounded-lg px-4 py-3 shadow-[4px_4px_0px_black] border-2 border-black transition-colors duration-200 flex items-center gap-2"
   >
     <img src="/public/love-favorite-heart-svgrepo-com.svg"  class="w-5 h-6 mx-4" />
     <div class="text-lg font-bold">{{ project.views }} likes</div>
@@ -301,7 +302,10 @@ const navigateToUser = (username: string) => {
     <!-- 5. Collaborators Section -->
 <div class="collaborators-section">
   <div class="flex items-center gap-3 mb-3">
-    <UsersRound color="#000000" class="w-8 h-8 rounded-full bg-sidebar" />
+    <div class="w-10 h-10 bg-sidebar flex items-center justify-center rounded-full">
+      <User color="#000000" class="w-8 h-8 rounded-full " />
+    </div>
+    
     <h3 class="text-xl font-bold">Collaborators</h3>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -313,7 +317,7 @@ const navigateToUser = (username: string) => {
       @click="navigateToUser(member.name)"
     >
       <div class="flex items-center gap-8 cursor-pointer pl-8">
-        <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-black bg-gray-200">
+        <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-black bg-gray-200">
           <img 
             :src="member.avatarUrl" 
             :alt="member.name"
@@ -323,7 +327,7 @@ const navigateToUser = (username: string) => {
         </div>
         <div class="overflow-hidden pl-15">
           <h4 class="text-xl font-bold truncate">{{ member.name }}</h4>
-          <p class="text-lg font-bold text-black">{{ member.major }}</p>
+          <p class="text-md  text-black">{{ member.major }}</p>
         </div>
       </div>
     </div>
