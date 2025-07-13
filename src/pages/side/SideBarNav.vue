@@ -8,9 +8,9 @@ const isOpen = ref(false)
 const route = useRoute()
 
 const items = [
-  { title: "Projects", url: "/", iconSrc : "/public/projects.svg" },
-  { title: "Students", url: "/users", iconSrc : "/public/students.svg"  },
-  { title: "Dashboard", url: "/dashboard", iconSrc : "/public/dashboard.svg"  },
+  { title: "Projects", url: "/", iconSrc : "./../../../public/projects.svg" },
+  { title: "Students", url: "/users", iconSrc : "./../../../public/students.svg"  },
+  { title: "Dashboard", url: "/dashboard", iconSrc : "./../../../public/dashboard.svg"  },
 ]
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import { User, UsersRound } from 'lucide-vue-next'
+import { User } from 'lucide-vue-next'
 
 
 const router = useRouter()
