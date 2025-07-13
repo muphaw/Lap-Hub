@@ -51,9 +51,9 @@ function toggleUser(user: string) {
   }
 }
 
-function isSelected(user: string) {
-  return selectedUsers.value.includes(user);
-}
+// function isSelected(user: string) {
+//   return selectedUsers.value.includes(user);
+// }
 </script>
 
 <template >

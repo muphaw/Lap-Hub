@@ -11,13 +11,12 @@ import { Input } from '@/components/ui/input'
 import { ref } from 'vue';
 import { Button } from '@/components/ui/button'
 
-const email = ref('');
-const password = ref('');
+// const email = ref('');
+// const password = ref('');
 
-const handleLogin = () => {
-  console.log('Logging in with:', email.value, password.value);
-  // You can add your login logic here
-};
+// const handleLogin = () => {
+//   console.log('Logging in with:', email.value, password.value);
+// };
 
 </script>
 <template>
