@@ -29,10 +29,11 @@ const items = [
       </div>
 
       <div class="flex-1 flex flex-col items-center justify-content-start  px-4 ">
-        <Button asChild class="w-full shadow-[4px_4px_0px_black] text-black text-xl bg-dark-yellow my-8 border border-2 border-black ">
+        <Button asChild class="w-full shadow-[4px_4px_0px_black] text-black text-xl bg-dark-yellow my-8 border border-2 border-black active:shadow-[0px_0px_0px_black]">
           <router-link to="/create"> 
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23 11v2h-1v1h-8v8h-1v1h-2v-1h-1v-8H2v-1H1v-2h1v-1h8V2h1V1h2v1h1v8h8v1z"/></svg>
-            Create Project</router-link>
+            Create Project
+          </router-link>
       </Button>
         <nav class="w-full mt-20 space-y-4">
           <router-link
@@ -51,10 +52,13 @@ const items = [
       </div>
 
       <div class="p-4 mb-6">
-        <Button class="w-full shadow-[4px_4px_0px_black] bg-crimson text-black text-xl border border-2 border-black">
+        <router-link to="/login">
+          <Button class="w-full shadow-[4px_4px_0px_black] bg-crimson text-black text-xl border border-2 border-black active:shadow-[0px_0px_0px_black]">
           <img src="/public/logout.svg"  class="w-5 h-5 mr-3" />
           Log Out
         </Button>
+        </router-link>
+        
       </div>
     </div> 
 
