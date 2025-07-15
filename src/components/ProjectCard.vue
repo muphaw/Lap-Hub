@@ -75,7 +75,7 @@
         class="bg-crimson py-1 px-9 rounded shadow-[4px_4px_0px_black] text-black text-xl border-2 border-black flex items-center gap-2"
       >
         <component
-          :is="project.liked ? HeartSolid : HeartOutline"
+          :is="project.liked ? '❤️' : '🤍' "
           :class="project.liked ? 'text-red-500' : 'text-black'"
           class="w-6 h-6"
         />
@@ -94,9 +94,8 @@
 </template>
 
 <script setup lang="ts">
-import { HeartIcon as HeartSolid } from '@heroicons/vue/24/solid'
-import { HeartIcon as HeartOutline } from '@heroicons/vue/24/outline'
-import type { Project } from '@/data/projects'
+import {Project} from '@/data/Projects';
+
 
 defineProps<{
   project: Project

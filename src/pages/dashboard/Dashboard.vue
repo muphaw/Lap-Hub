@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { FireIcon } from '@heroicons/vue/24/solid'
-import { HeartIcon as HeartSolid } from '@heroicons/vue/24/solid'
-import { HeartIcon as HeartOutline } from '@heroicons/vue/24/outline'
 
 interface TeamMember {
   name: string
@@ -230,7 +227,7 @@ const filteredProjects = reactive<Project[]>([
               aria-label="Like project"
             >
               <component
-                :is="project.liked ? HeartSolid : HeartOutline"
+                :is="project.liked ? '❤️' : '🤍'"
                 :class="project.liked ? 'text-red-500' : 'text-black'"
                 class="w-6 h-6"
               />

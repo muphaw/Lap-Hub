@@ -3,22 +3,30 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { students } from '@/data/student.ts'
-import { projects } from '@/data/projects.ts'
-import type { Project } from '@/data/projects'
-import ProjectCard from '@/components/ui/card/ProjectCard.vue'
+import ProjectCard from '@/components/ProjectCard.vue'
+import {Project, projects} from '@/data/Projects'
 
+type Student = {
+  id: number
+  name: string
+  major: string
+  year: number
+  image: string
+  email: string
+  popularity: number
+}
 const route = useRoute()
 const router = useRouter()
 
-const user = ref(null)
+const user = ref<Student | null>(null)
 const userProjects = ref<Project[]>([])
 
 onMounted(() => {
-  const userId = Number(route.params.id)
+  const userId  = Number(route.params.id)
   user.value = students.find((s) => s.id === userId) ?? null
   if (user.value) {
     userProjects.value = projects
-      .filter((p) => p.studentId === user.value.id)
+      .filter((p) => p.studentId === user.value!.id)
       .map((p) => ({ ...p })) // shallow copy for reactivity
   }
 })

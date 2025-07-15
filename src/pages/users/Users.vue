@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import StudentCard from '@/components/ui/card/StudentCard.vue'
+import StudentCard from '@/components/StudentCard.vue'
 import { students } from '@/data/student.ts'
 
 const selectedBatch = ref('')
