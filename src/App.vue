@@ -5,7 +5,7 @@ import SideBarNav from "@/pages/side/SideBarNav.vue"
 <template>
   <div class="flex h-screen">
     <SideBarNav />
-    <main class="flex-1 p-6 overflow-auto bg-grey-blue">
+    <main class="flex-1  overflow-auto bg-grey-blue">
       <router-view />
     </main>
   </div>
