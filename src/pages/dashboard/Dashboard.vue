@@ -109,10 +109,7 @@ const filteredProjects = reactive<Project[]>([
           alt="Profile picture of Jacob Jones"
           class="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full object-cover border-2 border-black"
         />
-        <div class="flex items-center gap-2 mt-4 text-gray-700">
-          <FireIcon class="w-8 h-8 text-red-500" />
-          <span class="text-4xl font-bold">39</span>
-        </div>
+      
       </div>
 
       <!-- Profile Info -->
@@ -185,7 +182,7 @@ const filteredProjects = reactive<Project[]>([
             <div
               v-for="(member, index) in project.teamMembers.slice(0, 3)"
               :key="member.name"
-              class="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden bg-gray-200 hover:scale-110 -ml-2.5"
+              class="w-8 h-8 rounded-full border-2 border-black shadow-sm overflow-hidden bg-gray-200 hover:scale-110 -ml-2.5"
               :style="{ zIndex: 3 - index }"
             >
               <img

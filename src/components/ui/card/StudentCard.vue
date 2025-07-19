@@ -1,7 +1,7 @@
 
 <!-- StudentCard.vue -->
 <template>
-  <div class="flex h-48 bg-amber-100 border-2 border-black rounded shadow-[4px_4px_0px_black] py-7 p-4  gap-4
+  <div class="flex h-48 bg-[#FFF3DE] border-2 border-black rounded shadow-[4px_4px_0px_black] py-7 p-4  gap-4
   transition-all duration-200 ease-in-out  hover:translate-y-[-4px] active:shadow-none active:translate-y-[2px] cursor-pointer
   ">
     <!-- Image on the left -->

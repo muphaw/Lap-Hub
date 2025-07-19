@@ -30,7 +30,7 @@
     <div class="absolute top-4 right-7 h-12 flex justify-end">
       <template v-for="(member, index) in project.teamMembers.slice(0, 3)" :key="member.name">
         <div
-          class="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden bg-gray-200 hover:scale-110 -ml-2.5"
+          class="w-8 h-8 rounded-full border-2 border-black shadow-sm overflow-hidden bg-gray-200 hover:scale-110 -ml-2.5"
           :style="{ zIndex: 3 - index }"
         >
           <img

@@ -7,6 +7,7 @@ import { projects } from '@/data/projects.ts'
 import type { Project } from '@/data/projects'
 import ProjectCard from '@/components/ui/card/ProjectCard.vue'
 
+
 const route = useRoute()
 const router = useRouter()
 
@@ -45,9 +46,9 @@ const openExternalLink = (url: string) => {
     <!-- Back Button -->
     <button
       @click="() => router.push({ name: 'Users' })"
-      class="mb-6 px-4 py-2 bg-crimson border-2 border-black rounded shadow-[4px_4px_0px_black] hover:bg-amber-300 transition"
+      class="mb-6 px-3 py-1 bg-crimson border-2 border-black rounded shadow-[4px_4px_0px_black] hover:bg-amber-300 transition"
     >
-      <i class="fa-solid fa-arrow-left text-2xl"></i>
+      <i class="fa-solid fa-arrow-left text-xl"></i>
     </button>
 
     <!-- User Info -->

@@ -25,37 +25,48 @@ const filteredStudents = computed(() => {
 <template>
   <div class="min-h-screen bg-[#9ec2cf] p-6">
     <!-- Filters -->
-    <div class="flex flex-wrap mt-5 gap-8 mb-12">
-      <!-- Batch Filter -->
+     
+  <div class="mb-12">
+  <div class="flex flex-row gap-4">
+    <!-- Batch Filter -->
+    <div class="relative w-1/2">
       <select
         v-model="selectedBatch"
-        class="w-64 py-1 bg-dark-yellow border-2 border-black rounded shadow-[4px_4px_0px_black] 
-        text-center text-bold text-xl
-        custom-select-arrow"
+        class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
+               text-lg custom-select-arrow"
       >
         <option value="">Batches</option>
         <option v-for="batch in batches" :key="batch" :value="batch">{{ batch }}</option>
       </select>
+    </div>
 
-      <!-- Major Filter -->
+    <!-- Major Filter -->
+    <div class="relative w-1/2">
       <select
         v-model="selectedMajor"
-        class="w-64 py-1 bg-dark-yellow border-2 border-black rounded shadow-[4px_4px_0px_black] 
-        text-center text-bold text-xl
-        custom-select-arrow"
+        class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
+              text-lg custom-select-arrow"
       >
-        <option value="">Majors</option>
+        <option value="">Major</option>
         <option v-for="major in majors" :key="major" :value="major">{{ major }}</option>
       </select>
+    </div>
 
-      <!-- Search Bar -->
+    <!-- Search Bar -->
+    <div class="relative w-full">
       <input
         v-model="searchQuery"
         type="text"
-        placeholder="Search by name..."
-        class="flex-1 px-4 py-2 bg-pink-100 border-2 border-black rounded shadow-[4px_4px_0px_black]"
+        placeholder="Search"
+        class="w-full px-10 h-9 rounded-md text-sm bg-[#FAE7D9] shadow-[4px_4px_0px_black] text-black border-2 border-black"
       />
+      <span class="absolute left-3 top-1/2 transform -translate-y-1/2">
+        <!-- Replace with icon if using one -->
+        🔍
+      </span>
     </div>
+  </div>
+</div>
 
     <!-- Student Cards -->
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
