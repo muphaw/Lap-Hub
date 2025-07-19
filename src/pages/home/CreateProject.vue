@@ -33,7 +33,6 @@ function handleSubmit() {
     date: projectDate.value,
   }
   console.log('Submitting:', payload)
-  // Submit logic here
 }
 
 function goBack() {
@@ -59,32 +58,29 @@ function toggleUser(user: string) {
 <template >
   <div class="py-6 px-16 min-h-screen bg-sidebar">
     <Button  @click="goBack" class="mb-4 px-3 py-1 shadow-[4px_4px_0px_black] text-black bg-crimson  border border-2 border-black active:shadow-[0px_0px_0px_black]">
-        <img src="/public/pixel--arrow-left.svg"  class="w-4 h-5" />
+        <img src="/pixel--arrow-left.svg"  class="w-4" />
     </Button>
 
     <h2 class="text-4xl text-center font-medium mb-6">Create Project</h2>
 
     <Form @submit.prevent="handleSubmit" class="space-y-6">
-      <!-- Row 1: Title & Collaborators -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Title -->
         <FormField name="'title'">
           <FormItem>
-            <FormLabel class="text-xl">Project Title</FormLabel>
+            <FormLabel class="text-xl ">Project Title</FormLabel>
             <FormControl>
-              <Input v-model="title" placeholder="Enter project title" class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black" required />
+              <Input v-model="title" placeholder="Enter project title" class="shadow-[4px_4px_0px_black] text-base bg-input  border border-2 border-black" required />
             </FormControl>
             <FormMessage />
           </FormItem>
         </FormField>
 
-        <!-- Collaborators (basic select-multiple style) -->
         <FormField name="collaborators">
           <FormItem>
             <FormLabel class="text-xl">Collaborators</FormLabel>
             <FormControl>
               <Select >
-              <SelectTrigger class="w-full shadow-[4px_4px_0px_black]  bg-input  border border-2 border-black">
+              <SelectTrigger class="w-full shadow-[4px_4px_0px_black]  bg-input !text-black text-base border border-2 border-black">
                 {{ selectedUsers.length ? selectedUsers.join(", ") : "Select users" }}
               </SelectTrigger>
               <SelectContent class="w-full shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black">
@@ -98,7 +94,7 @@ function toggleUser(user: string) {
                 >
                   <span class="flex items-center justify-between w-full ">
                     {{ user }}
-                    <!-- <span v-if="isSelected(user)" class="">✅</span> -->
+                    <!-- <span v-if="isSelected(user)" class="">p</span> -->
                   </span>
                 </SelectItem>
                 </SelectGroup>
@@ -110,24 +106,22 @@ function toggleUser(user: string) {
         </FormField>
       </div>
 
-      <!-- Row 2: Description -->
       <FormField name="description">
         <FormItem>
           <FormLabel class="text-xl">Project Description</FormLabel>
           <FormControl>
-            <Textarea v-model="description" placeholder="Write a description..." rows="4" class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black" required />
+            <Textarea v-model="description" placeholder="Write a description..." rows="4" class="shadow-[4px_4px_0px_black] text-base bg-input  border border-2 border-black" required />
           </FormControl>
           <FormMessage />
         </FormItem>
       </FormField>
 
-      <!-- Row 3: Link & Date -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField name ='link'>
           <FormItem>
             <FormLabel class="text-xl">Project Link</FormLabel>
             <FormControl>
-              <Input v-model="projectLink" type="url" placeholder="https://..." class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black"/>
+              <Input v-model="projectLink" type="url" placeholder="https://..." class="shadow-[4px_4px_0px_black] text-base bg-input  border border-2 border-black"/>
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -137,17 +131,21 @@ function toggleUser(user: string) {
           <FormItem>
             <FormLabel class="text-xl">Project Date</FormLabel>
             <FormControl>
-              <Input v-model="projectDate" type="date" class="shadow-[4px_4px_0px_black] text-black bg-input  border border-2 border-black" />
+              <Input v-model="projectDate" type="date" class="shadow-[4px_4px_0px_black] text-base bg-input  border border-2 border-black" />
             </FormControl>
             <FormMessage />
           </FormItem>
         </FormField>
       </div>
-       <div class="flex justify-center pt-10 ">
-        <Button type="submit" class="px-48 py-3 text-xl shadow-[4px_4px_0px_black] text-black bg-dark-yellow  border border-2 border-black active:shadow-[0px_0px_0px_black]">
-          Create
-        </Button>
-      </div>
+       <div class="flex justify-center pt-10">
+  <Button
+    type="submit"
+    class="px-12 sm:px-24 md:px-32 lg:px-48 py-3 text-lg md:text-xl shadow-[4px_4px_0px_black] text-black bg-dark-yellow border-2 border-black active:shadow-[0px_0px_0px_black]"
+  >
+    Create
+  </Button>
+</div>
+
     </Form>
   </div>
 </template>

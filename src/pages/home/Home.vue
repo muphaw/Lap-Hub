@@ -218,7 +218,7 @@ const handleTeamAvatarError = (e: Event, name: string) => {
         <div class="relative w-1/2">
           <Select class="px-12">
             <SelectTrigger
-              class="bg-dark-yellow shadow-[4px_4px_0px_black] border-black border-2 pl-8 text-lg pr-8"
+              class="bg-dark-yellow shadow-[4px_4px_0px_black] !text-black border-black border-2 pl-8 text-lg pr-8"
             >
               <SelectValue placeholder="Batch" class="text-black" />
             </SelectTrigger>
@@ -236,7 +236,7 @@ const handleTeamAvatarError = (e: Event, name: string) => {
         <div class="relative w-1/2">
           <Select>
             <SelectTrigger
-              class="bg-dark-yellow shadow-[4px_4px_0px_black] border-black border-2 pl-8 text-lg pr-8"
+              class="bg-dark-yellow shadow-[4px_4px_0px_black] border-black !text-black  border-2 pl-8 text-lg pr-8"
             >
               <SelectValue
                 placeholder="Major"
@@ -247,7 +247,7 @@ const handleTeamAvatarError = (e: Event, name: string) => {
               <SelectGroup>
                 <SelectLabel>Major</SelectLabel>
                 <SelectItem value="Computer Science">
-                  Computer Science
+                  Computer Studies
                 </SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -270,7 +270,7 @@ const handleTeamAvatarError = (e: Event, name: string) => {
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <!-- Project Card Component -->
       <div
         v-for="project in filteredProjects"
