@@ -306,7 +306,7 @@ const handleTeamAvatarError = (e: Event, name: string) => {
           <div
             v-for="(member, index) in project.teamMembers.slice(0, 3)"
             :key="member.name"
-            class="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden bg-gray-200 transition-transform duration-200 hover:scale-110 -ml-2.5 relative"
+            class="w-8 h-8 rounded-full border-2 border-black shadow-sm overflow-hidden bg-gray-200 transition-transform duration-200 hover:scale-110 -ml-2.5 relative"
             :style="{ zIndex: 3 - index }"
           >
             <img
@@ -355,9 +355,10 @@ const handleTeamAvatarError = (e: Event, name: string) => {
             @click.stop="toggleLike(project)"
             class="bg-crimson py-0.5 w-1/4 rounded text-sm cursor-pointer transition-all duration-200 hover:border-blue-500 shadow-[4px_4px_0px_black] text-black text-xl border border-2 border-black"
           >
-            <span class="text-sm w-5 h-5 mr-3">{{
-              project.liked ? "❤️" : "🤍"
-            }}</span>
+          
+            <span class="text-sm w-5 h-5 mr-3">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z"/></svg>
+</span>
             <span class="text-lg">{{ project.views }}</span>
           </Button>
           <Button

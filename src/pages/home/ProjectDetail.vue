@@ -202,9 +202,8 @@ const navigateToUser = (username: string) => {
     <!-- 1. Back Button (Original Design) -->
     <button 
       @click="router.go(-1)"
-      class="flex items-center  bg-crimson px-1 py-2 rounded text-sm shadow-[4px_4px_0px_black] text-white border-2 border-black  transition-colors duration-200"
-    >
-    <img src="/public/back-svgrepo-com.svg" class="w-7 h-5 ml-1" />
+     class="mb-4 px-3 py-1.5 shadow-[4px_4px_0px_black] text-black bg-crimson rounded-md border border-2 border-black active:shadow-[0px_0px_0px_black]">
+        <img src="/public/pixel--arrow-left.svg"  class="w-4 h-5" />
       
     </button>
     
@@ -282,9 +281,13 @@ const navigateToUser = (username: string) => {
   </button>
 
   <button
+  @click.stop="toggleLike(project)"
     class="w-full bg-[#E9A7A7] hover:bg-[#FFC9C9] active:bg-[#E6A2A2] rounded-lg px-4 py-3 shadow-[4px_4px_0px_black] border-2 border-black transition-colors duration-200 flex items-center gap-2"
   >
-    <img src="/public/love-favorite-heart-svgrepo-com.svg"  class="w-5 h-6 mx-4" />
+    <span  class="w-5 h-6 mx-4" > 
+       <span class="text-sm w-5 h-5 mr-3">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4z"/></svg>
+</span> </span>
     <div class="text-lg font-bold">{{ project.views }} likes</div>
   </button>
 
