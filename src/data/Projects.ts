@@ -6,7 +6,7 @@ export interface TeamMember {
 
 export interface Project {
   id: string
-  studentId: number  // <-- Add this to link to a student
+  studentId: number
   studentName: string
   studentAvatar: string
   department: string
@@ -22,10 +22,9 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    studentId: 1, // links to Devon Lane (id 1)
+    studentId: 1,
     studentName: 'Devon Lane',
-    studentAvatar:
-      'https://themindfulsteward.com/wp-content/uploads/2018/10/christopher-evans-chri7z-mindful-steward.jpg',
+    studentAvatar: 'https://themindfulsteward.com/wp-content/uploads/2018/10/christopher-evans-chri7z-mindful-steward.jpg',
     department: 'business',
     teamMembers: [
       { name: 'Ava', avatarUrl: 'https://randomuser.me/api/portraits/women/1.jpg' },
@@ -41,10 +40,9 @@ export const projects: Project[] = [
   },
   {
     id: '2',
-    studentId: 2, // links to Courtney Henry (id 2)
+    studentId: 2,
     studentName: 'Courtney Henery',
-    studentAvatar:
-      'https://randomuser.me/api/portraits/women/65.jpg',
+    studentAvatar: 'https://randomuser.me/api/portraits/women/65.jpg',
     department: 'Information Technology',
     teamMembers: [
       { name: 'Max', avatarUrl: 'https://randomuser.me/api/portraits/men/34.jpg' },

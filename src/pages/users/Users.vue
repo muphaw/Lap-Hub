@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import StudentCard from '@/components/ui/card/StudentCard.vue'
-import { students } from '@/data/student.ts'
+import StudentCard from '@/components/StudentCard.vue'
+import { students } from '@/data/student'
 
 const selectedBatch = ref('')
 const selectedMajor = ref('')
@@ -27,32 +27,37 @@ const filteredStudents = computed(() => {
     <!-- Filters -->
      
   <div class="mb-12">
-  <div class="flex flex-row gap-4">
-    <!-- Batch Filter -->
-    <div class="relative w-1/2">
-      <select
-        v-model="selectedBatch"
-        class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
-               text-lg custom-select-arrow"
-      >
-        <option value="">Batches</option>
-        <option v-for="batch in batches" :key="batch" :value="batch">{{ batch }}</option>
-      </select>
+  <!-- Responsive container -->
+  <div class="flex flex-col gap-4 lg:flex-row">
+    
+    <!-- Top row (dropdowns) -->
+    <div class="flex flex-row gap-4 w-full">
+      <!-- Batch Filter -->
+      <div class="relative w-1/2">
+        <select
+          v-model="selectedBatch"
+          class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
+                 text-lg custom-select-arrow"
+        >
+          <option value="">Batches</option>
+          <option v-for="batch in batches" :key="batch" :value="batch">{{ batch }}</option>
+        </select>
+      </div>
+
+      <!-- Major Filter -->
+      <div class="relative w-1/2">
+        <select
+          v-model="selectedMajor"
+          class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
+                text-lg custom-select-arrow"
+        >
+          <option value="">Major</option>
+          <option v-for="major in majors" :key="major" :value="major">{{ major }}</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Major Filter -->
-    <div class="relative w-1/2">
-      <select
-        v-model="selectedMajor"
-        class="w-full pl-8 h-9 bg-dark-yellow border-2 border-black rounded-md shadow-[4px_4px_0px_black] 
-              text-lg custom-select-arrow"
-      >
-        <option value="">Major</option>
-        <option v-for="major in majors" :key="major" :value="major">{{ major }}</option>
-      </select>
-    </div>
-
-    <!-- Search Bar -->
+    <!-- Bottom row (search bar) -->
     <div class="relative w-full">
       <input
         v-model="searchQuery"
@@ -61,12 +66,17 @@ const filteredStudents = computed(() => {
         class="w-full px-10 h-9 rounded-md text-sm bg-[#FAE7D9] shadow-[4px_4px_0px_black] text-black border-2 border-black"
       />
       <span class="absolute left-3 top-1/2 transform -translate-y-1/2">
-        <!-- Replace with icon if using one -->
-        🔍
-      </span>
+        
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+      
+    </span>
     </div>
+    
   </div>
 </div>
+
 
     <!-- Student Cards -->
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

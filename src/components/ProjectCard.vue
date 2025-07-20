@@ -1,7 +1,6 @@
-<!-- src/components/ui/card/ProjectCard.vue -->
 <template>
   <div
-    @click="() => viewProjectDetails(project.id)"
+    @click="viewProjectDetails(project.id)"
     class="bg-[#FFF3DE] hover:bg-[#FFF6E6] active:bg-[#FFECCB] rounded-lg overflow-hidden 
     flex flex-col relative pt-[70px] w-full 
     transition-all duration-200 ease-in-out hover:translate-y-[-4px] active:shadow-none active:translate-y-[2px] cursor-pointer 
@@ -10,7 +9,7 @@
     <!-- Avatar and Info -->
     <div
       class="absolute top-4 left-7 flex items-center gap-3 z-10"
-      @click.stop="() => viewUser(project.studentName)"
+      @click.stop="viewUser(project.studentName)"
     >
       <div class="w-12 h-12 rounded-full border-2 border-black overflow-hidden">
         <img
@@ -71,20 +70,18 @@
     <div class="p-4 border-t border-gray-200 flex justify-between">
       <!-- Like Button -->
       <button
-        @click.stop="() => toggleLike(project)"
+        @click.stop="toggleLike(project)"
         class="bg-crimson py-1 px-9 rounded shadow-[4px_4px_0px_black] text-black text-xl border-2 border-black flex items-center gap-2"
       >
-        <component
-          :is="project.liked ? HeartSolid : HeartOutline"
-          :class="project.liked ? 'text-red-500' : 'text-black'"
-          class="w-6 h-6"
-        />
+        <span :class="project.liked ? 'text-red-500' : 'text-black'" class="w-6 h-6">
+          {{ project.liked ? '❤️' : '🤍' }}
+        </span>
         <span>{{ project.views }}</span>
       </button>
 
       <!-- View Button -->
       <button
-        @click.stop="() => openExternalLink(project.externalUrl)"
+        @click.stop="openExternalLink(project.externalUrl)"
         class="bg-teal-800 py-1 px-12 rounded shadow-[4px_4px_0px_black] text-black text-xl border-2 border-black"
       >
         View
@@ -94,9 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { HeartIcon as HeartSolid } from '@heroicons/vue/24/solid'
-import { HeartIcon as HeartOutline } from '@heroicons/vue/24/outline'
-import type { Project } from '@/data/projects'
+import { Project } from '@/data/Projects'
 
 defineProps<{
   project: Project

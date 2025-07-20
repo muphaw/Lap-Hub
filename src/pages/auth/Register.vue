@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button'
       class="hidden md:flex w-1/2 bg-sidebar text-black flex-col justify-center items-start px-8 border-r-2 border-black"
     >
       <h1 class="text-7xl mb-2">Welcome to LAPHUB</h1>
-      <p class="text-3xl ">Join LAP HUB ---- Share your LAP journey.</p>
+      <p class="text-2xl">Join LAP HUB ---- Share your LAP journey.</p>
       <img
         src="/public/Street Life Class Picture.svg"
         alt="Logo"
@@ -35,10 +35,24 @@ import { Button } from '@/components/ui/button'
         </div>
 
         <h2 class="text-3xl md:text-4xl text-center font-medium mb-6">
-          Login
+          Create your account
         </h2>
 
         <Form class="space-y-6">
+          <FormField name="studentID">
+            <FormItem>
+              <FormLabel class="text-xl">Student ID</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter student ID..."
+                  class="shadow-[4px_4px_0px_black] text-base bg-input border-2 border-black w-full"
+                  required
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
           <FormField name="email">
             <FormItem>
               <FormLabel class="text-xl">Email</FormLabel>
@@ -68,19 +82,34 @@ import { Button } from '@/components/ui/button'
             </FormItem>
           </FormField>
 
+          <FormField name="confirmPassword">
+            <FormItem>
+              <FormLabel class="text-xl">Confirm Password</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Confirm your password..."
+                  type="password"
+                  class="shadow-[4px_4px_0px_black] text-base bg-input border-2 border-black w-full"
+                  required
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
           <div class="flex justify-center pt-8">
             <Button
               type="submit"
               class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg py-3 text-lg md:text-xl shadow-[4px_4px_0px_black] text-black bg-dark-yellow border-2 border-black active:shadow-[0px_0px_0px_black]"
             >
-              Log In
+              Create
             </Button>
           </div>
 
           <p class="text-center">
-            Haven’t joined the hub yet?
-            <router-link to="/register" class="font-semibold ml-1">
-              Create an account
+            Part of LAP Hub already?
+            <router-link to="/login" class="font-semibold ml-1">
+              Log In Here
             </router-link>
           </p>
         </Form>

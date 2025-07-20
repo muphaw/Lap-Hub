@@ -1,26 +1,39 @@
-<!-- src/pages/users/UserDetail.vue -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { students } from '@/data/student.ts'
-import { projects } from '@/data/projects.ts'
-import type { Project } from '@/data/projects'
-import ProjectCard from '@/components/ui/card/ProjectCard.vue'
+import { students } from '@/data/student'
+import ProjectCard from '@/components/ProjectCard.vue'
+import { Project, projects } from '@/data/Projects' // make sure filename is lowercase
 
+
+type Student = {
+  id: number
+  name: string
+  major: string
+  year: number
+  image: string
+  email: string
+  popularity: number
+}
 
 const route = useRoute()
 const router = useRouter()
 
-const user = ref(null)
+const user = ref<Student | null>(null)
 const userProjects = ref<Project[]>([])
 
 onMounted(() => {
   const userId = Number(route.params.id)
+  console.log('🔍 Route param userId:', userId)
+
   user.value = students.find((s) => s.id === userId) ?? null
+  console.log('👤 Matched student:', user.value)
+
   if (user.value) {
     userProjects.value = projects
-      .filter((p) => p.studentId === user.value.id)
+      .filter((p) => p.studentId === user.value!.id)
       .map((p) => ({ ...p })) // shallow copy for reactivity
+    console.log('📁 Filtered projects:', userProjects.value)
   }
 })
 
@@ -48,7 +61,7 @@ const openExternalLink = (url: string) => {
       @click="() => router.push({ name: 'Users' })"
       class="mb-6 px-3 py-1 bg-crimson border-2 border-black rounded shadow-[4px_4px_0px_black] hover:bg-amber-300 transition"
     >
-      <i class="fa-solid fa-arrow-left text-xl"></i>
+      <img src="/pixel--arrow-left.svg"  class="w-4 h-6" />
     </button>
 
     <!-- User Info -->
@@ -80,13 +93,13 @@ const openExternalLink = (url: string) => {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <ProjectCard
           v-for="project in userProjects"
-          :key="project.id + project.liked"
+          :key="project.id"
           :project="project"
           :toggleLike="toggleLike"
           :viewProjectDetails="viewProjectDetails"
           :viewUser="viewUser"
           :openExternalLink="openExternalLink"
-        />
+        /> 
       </div>
 
       <div
