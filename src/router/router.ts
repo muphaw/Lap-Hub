@@ -52,19 +52,17 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
   const authStore = useAuthStore();
   const isLoggedIn = authStore.user || localStorage.getItem('token');
 
   if (to.meta.requiresAuth && !isLoggedIn) {
-    next({ name: "Login" });
-  }
+    return { name: "Login" };
+  } 
   else if ((to.name === "Login" || to.name === "Register") && isLoggedIn) {
-    next({ name: "Home" }); 
+    return { name: "Home" };
   }
-  else {
-    next(); 
-  }
+  return true;
 });
 
 export default router;

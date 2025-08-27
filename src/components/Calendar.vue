@@ -15,7 +15,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 // vee-validate hooks
-import { useForm, useField } from 'vee-validate'
+import { useForm } from 'vee-validate'
 
 const df = new DateFormatter("en-US", {
   dateStyle: "long",
