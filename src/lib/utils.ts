@@ -13,3 +13,18 @@ export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref
       ? updaterOrValue(ref.value)
       : updaterOrValue
 }
+export function toBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result as string)
+    reader.onerror = error => reject(error)
+  })
+}
+
+export function formatDate(date: string | Date | undefined): string {
+  if (!date) return 'N/A'
+  return new Date(date).toLocaleDateString('en-CA') 
+}
+
+

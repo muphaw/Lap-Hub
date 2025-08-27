@@ -7,9 +7,9 @@ const route = useRoute()
 
 <template>
   <div class="flex h-screen">
-    <SideBarNav v-if="route.path !== '/create' && route.path !== '/login' && route.path !== '/register'"  />
-    <main class="flex-1  overflow-auto bg-grey-blue">
-      <router-view />
+    <SideBarNav v-if="route.path !== '/create' && route.path !== '/login' && route.path !== '/register'"  /> 
+       <main class="flex-1  overflow-auto bg-grey-blue">
+      <router-view /> 
     </main>
   </div>
 </template>

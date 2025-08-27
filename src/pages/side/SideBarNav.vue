@@ -1,26 +1,33 @@
   <script setup lang="ts">
   import { ref, watch } from "vue"
-  import { useRoute } from "vue-router"
+  import { useRoute, useRouter } from "vue-router"
   import { Menu } from "lucide-vue-next"
   import Button from "@/components/ui/button/Button.vue"
+import {useAuthStore} from "@/store/useAuthStore"
 
   const isOpen = ref(false)
   const route = useRoute()
+  const router = useRouter()
+  const authStore = useAuthStore()
+
+const handleLogout = () => {
+  authStore.logout()
+  router.push('/login') 
+}
 
   watch(() => route.path, () => {
     isOpen.value = false
   })
 
   const items = [
-    { title: "Projects", url: "/", iconSrc : "/projects.svg" },
-    { title: "Students", url: "/users", iconSrc : "/students.svg"  },
-    { title: "Dashboard", url: "/dashboard", iconSrc : "/dashboard.svg"  },
+    { title: "Projects", url: "/", iconSrc : "/projects.svg",activeNames: ["Home", "ProjectDetail"] },
+    { title: "Students", url: "/users", iconSrc : "/students.svg" , activeNames: ["Users", "UserDetail"] },
+    { title: "Profile", url: "/profile", iconSrc : "/dashboard.svg"  },
   ]
   </script>
 
   <template>
     <div class="flex h-screen bg-sidebar">
-      <!-- Sidebar -->
       <div
         :class="[
           'fixed z-40 md:relative md:translate-x-0 transform transition-transform duration-300 ease-in-out',
@@ -28,7 +35,10 @@
           'w-64 text-white flex flex-col bg-sidebar h-screen shadow-xl '
         ]"
       >
-        <div class="p-4 text-4xl text-black font-bold border-b-2 border-black  text-center"> 
+        <div
+        style="-webkit-text-stroke: 0.1px black;  
+                text-shadow: 2px 2px 1px black;"
+        class="p-4 text-4xl text-[#ffeac5] font-bold border-b-2 border-black  text-center"> 
           LAP HUB
         </div>
 
@@ -44,20 +54,22 @@
               v-for="item in items"
               :key="item.title"
               :to="item.url"
+              :exact="false"
               class="flex items-center text-xl gap-8 p-2 rounded transition px-4 text-black"
-              :class="route.path === item.url
-                ? 'shadow-[2px_4px_0px_black] border border-2 border-black  button-selected'
+              :class="route.path === item.url ||  item.activeNames?.includes(route.name as string)
+                ? 'shadow-[2px_4px_0px_black] border border-2 border-black button-selected'
                 : 'hover:bg-gray-400'"
             >
               <img :src="item.iconSrc" :alt="item.title" class="w-5 h-5" />
               <span>{{ item.title }}</span>
             </router-link>
+
           </nav>
         </div>
 
         <div class="p-4 mb-6">
           <router-link to="/login">
-            <Button class="w-full shadow-[4px_4px_0px_black] bg-crimson text-black text-xl border border-2 border-black active:shadow-[0px_0px_0px_black]">
+            <Button @click="handleLogout" class="w-full shadow-[4px_4px_0px_black] bg-crimson text-black text-xl border border-2 border-black active:shadow-[0px_0px_0px_black]">
             <img src="/logout.svg"  class="w-5 h-5 mr-3" />
             Log Out
           </Button>
