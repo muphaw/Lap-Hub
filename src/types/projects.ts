@@ -1,6 +1,7 @@
 
 export interface Collaborator {
   user_id: number;
+  name? : string;
   batch? : string,
   major? : string
 }
