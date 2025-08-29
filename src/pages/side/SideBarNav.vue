@@ -39,7 +39,7 @@ const handleLogout = () => {
         style="-webkit-text-stroke: 0.1px black;  
                 text-shadow: 2px 2px 1px black;"
         class="p-4 text-4xl text-[#ffeac5] font-bold border-b-2 border-black  text-center"> 
-          LAP HUB
+          LAPHUB
         </div>
 
         <div class="flex-1 flex flex-col items-center justify-content-start  px-4 ">

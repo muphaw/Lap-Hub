@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import Button from "./ui/button/Button.vue";
-import { Icon } from '@iconify/vue'
 
 const props = defineProps<{
   project: any;
@@ -125,7 +124,7 @@ const getInitials = (name: string) => {
         @click.stop="toggleLike"
         :class="[
           ' rounded shadow-[4px_4px_0px_black] text-black text-md border-2 border-black flex items-center gap-2',
-          liked ? 'bg-red-600 ' : 'bg-red-300 hover:bg-red-400',
+          liked ? 'bg-crimson' : 'bg-red-300 hover:bg-red-400',
         ]"
       >
         <span :class="liked ? 'text-yellow-400' : 'text-green-500'">

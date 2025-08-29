@@ -46,6 +46,7 @@ onMounted(async () => {
 })
 
 watch(searchQuery, async (newQuery) => {
+  console.log('Search query changed:', newQuery)
   if (!newQuery.trim()) {
     searchResults.value = []
     loading.value = false
@@ -73,16 +74,16 @@ const filteredUsers = computed(() => {
 
   return list.filter(user => {
     const matchesSearch = searchQuery.value
-      ? (user.name?.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      ? (user.students?.name?.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
          user.email?.toLowerCase().includes(searchQuery.value.toLowerCase()))
       : false;
 
     const matchesBatch = selectedBatch.value
-      ? user.batch === selectedBatch.value
+      ? user.students?.batch === selectedBatch.value
       : false;
 
     const matchesMajor = selectedMajor.value
-      ? user.major === selectedMajor.value
+      ? user.students?.major === selectedMajor.value
       : false;
 
     return matchesSearch || matchesBatch || matchesMajor;
@@ -169,10 +170,10 @@ const filteredUsers = computed(() => {
   >
      <router-link :to="`/users/${user.user_id}`">
       <UserCard
-        :name="user.name || 'Unknown'"
-        :major="user.major || 'N/A'"
-        :batch="user.batch || 'N/A'"
-        :image="user.image || '/default-avatar.png'"
+        :name="user.students?.name || 'Unknown'"
+        :major="user.students?.major || 'N/A'"
+        :batch="user.students?.batch || 'N/A'"
+        :image="user.students?.image || '/default-avatar.png'"
       />
     </router-link>
   </div>
