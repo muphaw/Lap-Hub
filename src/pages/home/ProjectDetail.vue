@@ -217,14 +217,25 @@ const openProjectLink = () => {
           :class="[
             'py-6 pr-16 text-lg border-2 border-black flex items-center gap-5 rounded cursor-pointer transition-all duration-200 shadow-[4px_4px_0px_black]',
             project.liked
-              ? 'bg-red-200 hover:bg-red-100 active:bg-red-300 text-red-700'
-              : 'bg-red-200 hover:bg-red-100 active:bg-red-300 text-black',
+              ? 'bg-crimson '
+              : 'bg-red-300 hover:bg-red-400',
           ]"
         >
-          <img src="/share-04-svgrepo-com (4).svg" class="w-5 h-4" />
-          <span class="text-xl">
-            {{ project.liked ? "Liked" : "Like" }}
-          </span>
+          <span :class="project.liked ? 'text-black' : 'text-black'">
+          <template v-if="project.liked" class="flex">
+            <div class="flex items-center gap-4">
+                <img src="/pixel--heart-solid (1).svg" class="w-5 h-4 text-green-500" fill="blue" />
+            <h2>Liked</h2>
+            </div>
+        
+          </template>
+          <template v-else>
+            <div class="flex items-center gap-4">
+              <img src="/public/pixel--heart.svg" class="w-5 h-4 " />
+              <h2>Like</h2>
+            </div>
+          </template>
+        </span>
         </Button>
 
         <Button
